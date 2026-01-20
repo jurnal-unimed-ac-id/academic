@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Akademik UNIMED - Universitas Negeri Medan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0a2c5e;
+            --secondary-blue: #1e4a8c;
+            --accent-gold: #daa520;
+            --light-blue: #e6f0ff;
+            --dark-blue: #071a3d;
+            --white: #ffffff;
+            --gray-light: #f5f7fa;
+            --gray-medium: #8a94a6;
+            --success: #28a745;
+            --warning: #ffc107;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--white);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header dengan gradient dan shape */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-shapes {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            opacity: 0.1;
+            background: 
+                radial-gradient(circle at 70% 20%, var(--accent-gold) 0%, transparent 50%),
+                radial-gradient(circle at 30% 80%, var(--accent-gold) 0%, transparent 50%);
+        }
+        
+        .top-bar {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info span {
+            margin-right: 20px;
+        }
+        
+        .contact-info i {
+            margin-right: 5px;
+            color: var(--accent-gold);
+        }
+        
+        .quick-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            transition: color 0.3s;
+        }
+        
+        .quick-links a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .main-header {
+            padding: 25px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-icon i {
+            font-size: 32px;
+            color: var(--primary-blue);
+        }
+        
+        .logo-text h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        .logo-text span {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .university-name {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            border-left: 3px solid var(--accent-gold);
+        }
+        
+        .nav-container {
+            position: relative;
+        }
+        
+        .main-nav {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-nav li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        
+        .main-nav a i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .main-nav a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .main-nav a.active {
+            color: var(--accent-gold);
+        }
+        
+        .main-nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-gold);
+            border-radius: 3px;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero dengan carousel */
+        .hero-section {
+            padding: 80px 0;
+            background-color: var(--light-blue);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .hero-text h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-text h2 span {
+            color: var(--secondary-blue);
+            font-weight: 700;
+        }
+        
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            background-color: var(--white);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray-medium);
+        }
+        
+        .hero-visual {
+            position: relative;
+        }
+        
+        .floating-shapes {
+            position: relative;
+            height: 350px;
+        }
+        
+        .shape {
+            position: absolute;
+            border-radius: 20px;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .shape-1 {
+            width: 280px;
+            height: 200px;
+            top: 0;
+            right: 0;
+            background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');
+            z-index: 3;
+        }
+        
+        .shape-2 {
+            width: 200px;
+            height: 150px;
+            top: 60px;
+            left: 0;
+            background-image: url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');
+            z-index: 2;
+        }
+        
+        .shape-3 {
+            width: 180px;
+            height: 180px;
+            bottom: 0;
+            right: 50px;
+            background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');
+            z-index: 1;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-gold);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(218, 165, 32, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: #c6951e;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(218, 165, 32, 0.4);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary-blue);
+            color: var(--secondary-blue);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary-blue);
+            color: white;
+        }
+        
+        /* Fitur utama */
+        .features-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-gold);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray-medium);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--gray-light);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid #e1e5eb;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            height: 120px;
+            background-color: var(--secondary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+        }
+        
+        .feature-content {
+            padding: 25px;
+        }
+        
+        .feature-content h3 {
+            font-size: 1.4rem;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+        }
+        
+        .feature-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .feature-link {
+            color: var(--secondary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-link i {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .feature-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Jurnal section */
+        .journals-section {
+            padding: 80px 0;
+            background-color: var(--light-blue);
+        }
+        
+        .journals-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .journals-filter {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background-color: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--secondary-blue);
+            color: white;
+            border-color: var(--secondary-blue);
+        }
+        
+        .journals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .journal-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .journal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .journal-header {
+            padding: 20px;
+            background-color: var(--primary-blue);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .journal-category {
+            background-color: var(--accent-gold);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .journal-body {
+            padding: 25px;
+        }
+        
+        .journal-title {
+            font-size: 1.2rem;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+        
+        .journal-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray-medium);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .journal-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .action-btn {
+            background: none;
+            border: none;
+            color: var(--secondary-blue);
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        .action-btn i {
+            margin-right: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-gold);
+            display: inline-block;
+        }
+        
+        .footer-col p {
+            color: #bbb;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .footer-links i {
+            margin-right: 10px;
+            width: 20px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+        
+        .newsletter-btn {
+            background-color: var(--accent-gold);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent-gold);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .floating-shapes {
+                height: 250px;
+                margin-top: 40px;
+            }
+            
+            .shape-1 {
+                width: 200px;
+                height: 140px;
+            }
+            
+            .shape-2 {
+                width: 150px;
+                height: 100px;
+            }
+            
+            .shape-3 {
+                width: 130px;
+                height: 130px;
+                right: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background-color: var(--primary-blue);
+                flex-direction: column;
+                padding: 100px 30px 30px;
+                transition: right 0.5s;
+                z-index: 1000;
+            }
+            
+            .main-nav.active {
+                right: 0;
+            }
+            
+            .main-nav li {
+                margin: 0 0 20px 0;
+            }
+            
+            .mobile-toggle {
+                display: block;
+                z-index: 1001;
+            }
+            
+            .header-shapes {
+                width: 60%;
+            }
+            
+            .top-bar-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .quick-links a {
+                margin: 0 10px;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .journals-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid, .journals-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-shapes"></div>
+        
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> (061) 6613365</span>
+                    <span><i class="fas fa-envelope"></i> info@unimed.ac.id</span>
+                </div>
+                <div class="quick-links">
+                    <a href="#">SIMAK</a>
+                    <a href="#">SIAKAD</a>
+                    <a href="#">E-LEARNING</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-header">
+            <div class="container header-content">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>PORTAL AKADEMIK UNIMED</h1>
+                        <span>Universitas Negeri Medan</span>
+                    </div>
+                </div>
+                
+                <div class="university-name">
+                    Universitas Negeri Medan
+                </div>
+                
+                <button class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav class="nav-container">
+                    <ul class="main-nav" id="mainNav">
+                        <li><a href="#" class="active"><i class="fas fa-home"></i> Beranda</a></li>
+                        <li><a href="#"><i class="fas fa-book-open"></i> Jurnal</a></li>
+                        <li><a href="#"><i class="fas fa-newspaper"></i> Berita</a></li>
+                        <li><a href="#"><i class="fas fa-calendar-alt"></i> Agenda</a></li>
+                        <li><a href="#"><i class="fas fa-graduation-cap"></i> Akademik</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> Kontak</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Portal <span>Akademik</span> dan <span>Publikasi Ilmiah</span> Universitas Negeri Medan</h2>
+                    <p>Menyediakan akses terhadap jurnal ilmiah, hasil penelitian, informasi akademik, dan berbagai layanan pendidikan dari UNIMED. Portal ini menjadi sarana integrasi antara sivitas akademika dan masyarakat.</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#" class="btn">Jelajahi Jurnal</a>
+                        <a href="https://www.unimed.ac.id" target="_blank" class="btn btn-outline">Website UNIMED</a>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">45+</span>
+                            <span class="stat-label">Jurnal Ilmiah</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3,500+</span>
+                            <span class="stat-label">Artikel Publikasi</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">Fakultas</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="floating-shapes">
+                        <div class="shape shape-1"></div>
+                        <div class="shape shape-2"></div>
+                        <div class="shape shape-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Layanan Akademik UNIMED</h2>
+                <p>Akses berbagai layanan dan fasilitas akademik yang disediakan oleh Universitas Negeri Medan</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Jurnal Ilmiah</h3>
+                        <p>Akses ke publikasi ilmiah terbaru dari berbagai disiplin ilmu yang diterbitkan oleh UNIMED. Jurnal terindeks Scopus dan Sinta.</p>
+                        <a href="#" class="feature-link">Lihat Jurnal <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>E-Learning</h3>
+                        <p>Sistem pembelajaran daring yang mendukung proses belajar mengajar dengan fitur lengkap untuk dosen dan mahasiswa.</p>
+                        <a href="#" class="feature-link">Akses E-Learning <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>SIAKAD</h3>
+                        <p>Sistem Informasi Akademik terintegrasi untuk pengelolaan data akademik mahasiswa, nilai, dan administrasi pendidikan.</p>
+                        <a href="#" class="feature-link">Login SIAKAD <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journals Section -->
+    <section class="journals-section">
+        <div class="container">
+            <div class="journals-header">
+                <div class="section-title">
+                    <h2>Jurnal Terbaru</h2>
+                    <p>Publikasi ilmiah terkini dari berbagai fakultas di UNIMED</p>
+                </div>
+                
+                <div class="journals-filter">
+                    <button class="filter-btn active">Semua</button>
+                    <button class="filter-btn">Pendidikan</button>
+                    <button class="filter-btn">Sains</button>
+                    <button class="filter-btn">Sosial</button>
+                </div>
+            </div>
+            
+            <div class="journals-grid">
+                <div class="journal-card">
+                    <div class="journal-header">
+                        <span>Vol. 12, No. 2, 2023</span>
+                        <span class="journal-category">Pendidikan</span>
+                    </div>
+                    <div class="journal-body">
+                        <h3 class="journal-title">Inovasi Model Pembelajaran Berbasis Teknologi di Sekolah Menengah</h3>
+                        <div class="journal-meta">
+                            <span><i class="far fa-user"></i> Dr. Siti Aminah, M.Pd.</span>
+                            <span><i class="far fa-calendar"></i> Juni 2023</span>
+                        </div>
+                        <p>Penelitian tentang efektivitas penggunaan teknologi dalam pembelajaran di sekolah menengah dengan pendekatan mixed methods.</p>
+                        <div class="journal-actions">
+                            <button class="action-btn"><i class="far fa-eye"></i> Baca Abstrak</button>
+                            <button class="action-btn"><i class="fas fa-download"></i> Download PDF</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="journal-card">
+                    <div class="journal-header">
+                        <span>Vol. 9, No. 1, 2023</span>
+                        <span class="journal-category">Ekonomi</span>
+                    </div>
+                    <div class="journal-body">
+                        <h3 class="journal-title">Analisis Dampak Ekonomi Kreatif terhadap Pembangunan Regional Sumatera Utara</h3>
+                        <div class="journal-meta">
+                            <span><i class="far fa-user"></i> Prof. Dr. Ahmad Hidayat</span>
+                            <span><i class="far fa-calendar"></i> Maret 2023</span>
+                        </div>
+                        <p>Studi komprehensif tentang kontribusi sektor ekonomi kreatif terhadap pertumbuhan ekonomi di wilayah Sumatera Utara.</p>
+                        <div class="journal-actions">
+                            <button class="action-btn"><i class="far fa-eye"></i> Baca Abstrak</button>
+                            <button class="action-btn"><i class="fas fa-download"></i> Download PDF</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="journal-card">
+                    <div class="journal-header">
+                        <span>Vol. 15, No. 3, 2023</span>
+                        <span class="journal-category">Teknologi</span>
+                    </div>
+                    <div class="journal-body">
+                        <h3 class="journal-title">Pengembangan Aplikasi Mobile untuk Pembelajaran Bahasa Inggris Berbasis Gamifikasi</h3>
+                        <div class="journal-meta">
+                            <span><i class="far fa-user"></i> Dr. Rina Dewi, M.Kom.</span>
+                            <span><i class="far fa-calendar"></i> April 2023</span>
+                        </div>
+                        <p>Penelitian pengembangan aplikasi mobile dengan pendekatan gamifikasi untuk meningkatkan motivasi belajar bahasa Inggris.</p>
+                        <div class="journal-actions">
+                            <button class="action-btn"><i class="far fa-eye"></i> Baca Abstrak</button>
+                            <button class="action-btn"><i class="fas fa-download"></i> Download PDF</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>UNIMED</h3>
+                    <p>Universitas Negeri Medan merupakan perguruan tinggi negeri yang berfokus pada bidang pendidikan dan ilmu pendidikan, dengan komitmen untuk menjadi universitas penelitian yang unggul.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Tautan Cepat</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Beranda</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Profil UNIMED</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Jurnal Ilmiah</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Berita Kampus</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Kalender Akademik</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Fakultas</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Fakultas Ilmu Pendidikan</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Fakultas Bahasa dan Seni</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Fakultas Matematika & IPA</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Fakultas Teknik</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Fakultas Ilmu Sosial</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Berlangganan</h3>
+                    <p>Dapatkan informasi terbaru tentang publikasi jurnal, berita kampus, dan pengumuman penting dari UNIMED.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Email Anda">
+                        <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Portal Akademik UNIMED - Universitas Negeri Medan. Hak Cipta Dilindungi.</p>
+                <p>Jl. Willem Iskandar Pasar V, Medan Estate, Sumatera Utara 20221 | Telp: (061) 6613365</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            
+            // Change icon
+            const icon = mobileToggle.querySelector('i');
+            if (mainNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Journal filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Filter functionality would go here
+                console.log(`Filter: ${btn.textContent}`);
+            });
+        });
+        
+        // Journal action buttons
+        const actionBtns = document.querySelectorAll('.action-btn');
+        
+        actionBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const action = btn.textContent.trim();
+                const journalTitle = btn.closest('.journal-card').querySelector('.journal-title').textContent;
+                
+                if (action.includes('Baca')) {
+                    alert(`Membaca abstrak jurnal: ${journalTitle}`);
+                } else if (action.includes('Download')) {
+                    alert(`Mendownload PDF jurnal: ${journalTitle}`);
+                }
+            });
+        });
+        
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('.newsletter-input').value;
+            
+            if (email) {
+                alert(`Terima kasih! Email ${email} telah berhasil didaftarkan untuk newsletter.`);
+                newsletterForm.reset();
+            } else {
+                alert('Silakan masukkan email Anda.');
+            }
+        });
+        
+        // Active navigation link
+        const navLinks = document.querySelectorAll('.main-nav a');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Close mobile menu if open
+                if (mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                    const icon = mobileToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
